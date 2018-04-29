@@ -20,13 +20,15 @@ void setup()
 void loop()
 {
     // put your main code here, to run repeatedly:
+
     unsigned long currentMillis = millis();
     if ((currentMillis % 2000) == 0)
     {
         float humidity = sensor.readHumidity();
         float temperature = sensor.readTemperature();
         String atCommand = "AT+DHT11=";
-        String strValues = String(humidity) + "," + String(temperature);
+        String sensorAddressStr = "";
+        String strValues = String(humidity) + "," + String(temperature) + "," + sensorAddressStr;
         atCommand += strValues;
         Serial.println("AT Command: " + atCommand);
         node.sendMessage(atCommand);
