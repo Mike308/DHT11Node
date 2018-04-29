@@ -5,10 +5,12 @@ class RF24Network : public RF24
 
   public:
     RF24Network(uint16_t cePin, uint16_t csPin) : RF24(cePin, csPin){}
-    void setNodeAdress(String nodeAdress);
+    RF24Network(uint16_t cePin, uint16_t csPin, String nodeAddress);
+    void setNodeAddress(String nodeAddress);
     bool sendMessage(String message);
 
   private:
-    String nodeAdress;
+    String nodeAddress;
+    char buf[128];
 
 };
