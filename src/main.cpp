@@ -27,7 +27,6 @@ void loop()
         float humidity = sensor.readHumidity();
         float temperature = sensor.readTemperature();
         String atCommand = "AT+DHT11=";
-        String sensorAddressStr = "";
         String strValues = String(humidity) + "," + String(temperature) + "," + sensorAddressStr;
         atCommand += strValues;
         Serial.println("AT Command: " + atCommand);
